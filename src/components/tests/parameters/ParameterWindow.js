@@ -32,7 +32,7 @@ const ParameterWindow = props => {
     const displayParameters = () => {
         if(!allParameterPaths) return
         return allParameterPaths.map(path => {
-            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :activeParameter.fullPath === path ? "grey" : "" }}>{path}</div>
+            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :activeParameter && activeParameter.fullPath === path ? "grey" : "" }}>{path}</div>
         })
     }
 
