@@ -20,7 +20,7 @@ const NavBar = props => {
 
             <ul className="navbar-ul">
 
-                <li className="navbar-li active" onClick={() => navTabClick("tests")} id="nav-tests" >
+                <li className="navbar-li active-nav-tab" onClick={() => navTabClick("tests")} id="nav-tests" >
                     Tests
                 </li>
 
