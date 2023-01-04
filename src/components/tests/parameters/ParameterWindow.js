@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
+import { ParameterContext } from "../../../App"
 const {ipcRenderer} = window.require('electron')
 
 const ParameterWindow = props => {
 
+    const {setActiveParameter} = useContext(ParameterContext)
     const [allParameterPaths,setAllParameterPaths] = useState(null)
     const [parameterFolderBasePath,setParameterFolderBasePath] = useState(null)
+    
 
     useEffect(() => {
         getAllParameterFiles()
@@ -29,7 +32,15 @@ const ParameterWindow = props => {
     const displayParameters = () => {
         if(!allParameterPaths) return
         return allParameterPaths.map(path => {
-            return <div className="parameter-item" key={path}>{path}</div>
+            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)}>{path}</div>
+        })
+    }
+
+    const selectParameter = parameterPath => {
+        const splitPath = parameterPath.split("\\")
+        setActiveParameter({
+            fullPath : parameterPath,
+            fileName : splitPath[splitPath.length-1]
         })
     }
 
