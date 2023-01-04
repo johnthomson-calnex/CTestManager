@@ -1,0 +1,29 @@
+.navbar {
+  background-color: #ec5d5d;
+  color: white;
+  display: flex;
+  height: 50px;
+}
+.navbar ul {
+  display: flex;
+  margin: 0;
+}
+.navbar ul li {
+  list-style-type: none;
+  width: 90px;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar ul li:hover {
+  cursor: pointer;
+  color: #c9c9c9;
+}
+
+.active-nav-tab {
+  color: black;
+  border-bottom: 2px solid black;
+}
