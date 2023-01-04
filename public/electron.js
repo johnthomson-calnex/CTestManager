@@ -3,9 +3,10 @@ require("@electron/remote/main").initialize()
 const url = require("url")
 const path = require("path")
 const { createMainMenu } = require("./menus/MainMenu")
+const { loadConfigFile } = require("./functions/ConfigFile")
 
 let mainWindow = null
-
+let config_location = null
 
 const createMainWindow = () => {
 
@@ -37,10 +38,12 @@ const createMainWindow = () => {
 }
 
 
-app.on("ready", () => {
+app.on("ready", async () => {
     try {
         createMainWindow()
         createMainMenu(mainWindow)
+        config = await loadConfigFile()
+
 
     }
     catch(e)
