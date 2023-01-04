@@ -24,7 +24,7 @@ const ParameterWindow = props => {
         const trimmedPaths = parameterPaths.map(path => {
             return path.replace(`${parameterFolderPath}\\`, "")
         })
-        setAllParameterPaths(parameterPaths)
+        setAllParameterPaths(trimmedPaths)
         setParameterFolderBasePath(parameterFolderPath)
     })
 
