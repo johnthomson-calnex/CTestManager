@@ -1,0 +1,48 @@
+.tests-window {
+  background-color: white;
+  height: 93vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.tests-left {
+  background-color: grey;
+  width: 25%;
+}
+
+.tests-left-parameters {
+  background-color: antiquewhite;
+  height: 30%;
+}
+
+.tests-left-tests {
+  background-color: aquamarine;
+  height: 60%;
+  margin-top: 1rem;
+}
+
+.tests-left-buttons {
+  background-color: blueviolet;
+  margin-top: 0.5rem;
+  height: 6%;
+}
+
+.tests-right {
+  background-color: blueviolet;
+  width: 75%;
+}
+
+.tests-right-info {
+  background-color: #e4af6a;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.tests-right-content {
+  background-color: yellow;
+  height: 80%;
+  padding: 1rem;
+}
