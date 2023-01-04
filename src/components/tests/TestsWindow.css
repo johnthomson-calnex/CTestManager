@@ -18,14 +18,8 @@
 
 .tests-left-tests {
   background-color: aquamarine;
-  height: 60%;
+  height: 68%;
   margin-top: 1rem;
-}
-
-.tests-left-buttons {
-  background-color: blueviolet;
-  margin-top: 0.5rem;
-  height: 6%;
 }
 
 .tests-right {

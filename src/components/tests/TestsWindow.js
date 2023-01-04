@@ -18,9 +18,6 @@ const TestsWindow = props => {
                 <div className="tests-left-tests">
                     tests
                 </div>
-                <div className="tests-left-buttons">
-                    b 
-                </div>
             </div>
 
             <div className="tests-right">
