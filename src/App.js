@@ -4,29 +4,35 @@ import "./App.css"
 import React, {createContext, useState} from "react"
 
 export const ParameterContext = createContext(null)
-
+export const TestContext = createContext(null)
 function App() {
 
   const [activeParameter,setActiveParameter] = useState(null)
+  const [activeTest,setActiveTest] = useState(null)
 
   return (<>
     
-      <ParameterContext.Provider value={{
-        activeParameter,
-        setActiveParameter
-      }}>
+    <TestContext.Provider value={{
+      activeTest,
+      setActiveTest
+    }}>
+        <ParameterContext.Provider value={{
+          activeParameter,
+          setActiveParameter
+        }}>
 
-        <HashRouter>
+          <HashRouter>
 
-          <Routes>
+            <Routes>
 
-            <Route path="/" exact element={<MainWindow />}/>
+              <Route path="/" exact element={<MainWindow />}/>
 
-          </Routes>
+            </Routes>
 
-        </HashRouter>
+          </HashRouter>
 
-      </ParameterContext.Provider>
+        </ParameterContext.Provider>
+      </TestContext.Provider>
 
   </>);
 }
