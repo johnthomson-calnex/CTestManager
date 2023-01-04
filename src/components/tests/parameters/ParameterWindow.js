@@ -4,7 +4,7 @@ const {ipcRenderer} = window.require('electron')
 
 const ParameterWindow = props => {
 
-    const {setActiveParameter} = useContext(ParameterContext)
+    const {setActiveParameter,activeParameter} = useContext(ParameterContext)
     const [allParameterPaths,setAllParameterPaths] = useState(null)
     const [parameterFolderBasePath,setParameterFolderBasePath] = useState(null)
     
@@ -32,7 +32,7 @@ const ParameterWindow = props => {
     const displayParameters = () => {
         if(!allParameterPaths) return
         return allParameterPaths.map(path => {
-            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)}>{path}</div>
+            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :activeParameter.fullPath === path ? "grey" : "" }}>{path}</div>
         })
     }
 
