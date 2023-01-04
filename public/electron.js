@@ -31,6 +31,7 @@ const createMainWindow = () => {
     "http://localhost:3000"
 
     mainWindow.loadURL(appURL)
+    mainWindow.setTitle("Calnex Test Manager")
     exports.mainWindow
 
 }
