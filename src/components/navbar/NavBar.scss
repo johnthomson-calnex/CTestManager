@@ -19,7 +19,7 @@
          justify-content: center;
          &:hover {
             cursor: pointer;
-            color:rgb(201, 201, 201);
+            color:$primary-hover-colour;
          }
        }
     }
