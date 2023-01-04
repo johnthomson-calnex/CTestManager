@@ -2,6 +2,8 @@
   "name": "ctestmanager",
   "version": "0.1.0",
   "private": true,
+  "author": "John Thomson",
+  "description": "Software that will handle the automated tests",
   "dependencies": {
     "@electron/remote": "^2.0.9",
     "@testing-library/jest-dom": "^5.16.5",
@@ -9,8 +11,6 @@
     "@testing-library/user-event": "^13.5.0",
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
-    "electron": "^22.0.0",
-    "electron-builder": "^23.6.0",
     "electron-is-dev": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -18,13 +18,17 @@
     "wait-on": "^7.0.1",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-builder": "^23.6.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
-    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.js",
+    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/electron.js",
     "electron:start": "wait-on tcp:3000 && electron ."
   },
   "eslintConfig": {
@@ -49,7 +53,7 @@
   "homepage": "./",
   "build": {
     "extends": null,
-    "appId": "com.jtcrm",
+    "appId": "com.ctestmanager",
     "files": [
       "dist/**/*",
       "build/**/*",
