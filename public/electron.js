@@ -1,12 +1,13 @@
-const {BrowserWindow,app} = require("electron")
+const {BrowserWindow,app, ipcMain} = require("electron")
 require("@electron/remote/main").initialize()
 const url = require("url")
 const path = require("path")
 const { createMainMenu } = require("./menus/MainMenu")
 const { loadConfigFile } = require("./functions/ConfigFile")
+const { getAllParameters } = require("./functions/TestsFunctions")
 
 let mainWindow = null
-let config_location = null
+let config = null
 
 const createMainWindow = () => {
 
@@ -43,7 +44,7 @@ app.on("ready", async () => {
         createMainWindow()
         createMainMenu(mainWindow)
         config = await loadConfigFile()
-
+        exports.config = config
 
     }
     catch(e)
@@ -51,15 +52,21 @@ app.on("ready", async () => {
         console.log(e)
     }
 
-
 })
+
 
 app.on("window-all-closed", () => {
     if(process.platform !== "darwin")
-        app.quit()
+    app.quit()
 })
 
 app.on("activate", () => {
     if(BrowserWindow.getAllWindows().length === 0)
-        createMainWindow()
+    createMainWindow()
 })
+
+
+// Test Listeners
+ipcMain.on('tests-get-all-parameters', (event) => getAllParameters(event,config["repositoryRoot"]["value"]))
+
+
