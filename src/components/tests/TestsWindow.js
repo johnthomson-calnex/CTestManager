@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import ParameterWindow from "./parameters/ParameterWindow"
 import "./TestsWindow.css"
 import { ParameterContext } from "../../App"
+import TestControlWindow from "./info_panel/TestControlPanel"
 
 const TestsWindow = props => {
 
@@ -22,7 +23,7 @@ const TestsWindow = props => {
 
             <div className="tests-right">
                 <div className="tests-right-info">
-                    {activeParameter?.fileName}
+                    <TestControlWindow {...props} />
                 </div>
                 <div className="tests-right-content">
                     content
