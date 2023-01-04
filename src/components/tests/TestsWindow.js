@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useContext } from "react"
+import ParameterWindow from "./parameters/ParameterWindow"
 import "./TestsWindow.css"
-
+import { ParameterContext } from "../../App"
 
 const TestsWindow = props => {
 
+    const {activeParameter} = useContext(ParameterContext)
 
     return (<>
     
@@ -11,19 +13,19 @@ const TestsWindow = props => {
 
             <div className="tests-left">
                 <div className="tests-left-parameters">
-                    params
+                    <ParameterWindow {...props} />
                 </div>
                 <div className="tests-left-tests">
                     tests
                 </div>
                 <div className="tests-left-buttons">
-                    b
+                    b 
                 </div>
             </div>
 
             <div className="tests-right">
                 <div className="tests-right-info">
-                    Test info
+                    {activeParameter?.fileName}
                 </div>
                 <div className="tests-right-content">
                     content
