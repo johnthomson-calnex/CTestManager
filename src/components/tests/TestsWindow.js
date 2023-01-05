@@ -3,6 +3,7 @@ import ParameterWindow from "./parameters/ParameterWindow"
 import "./TestsWindow.css"
 import { ParameterContext } from "../../App"
 import TestControlWindow from "./info_panel/TestControlPanel"
+import TestsPanel from "./tests_panel/TestsPanel"
 
 const TestsWindow = props => {
 
@@ -17,7 +18,7 @@ const TestsWindow = props => {
                     <ParameterWindow {...props} />
                 </div>
                 <div className="tests-left-tests">
-                    tests
+                    <TestsPanel {...props} />
                 </div>
             </div>
 
