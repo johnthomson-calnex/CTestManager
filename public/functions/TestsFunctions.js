@@ -20,4 +20,32 @@ const getAllParameters = (event,repositoryRoot) => {
     
 }
 
-module.exports = {getAllParameters}
+const getAllTests = (event,repositoryRoot,ignoreFolders) => {
+    try {
+        //const testFolder = path.join(repositoryRoot,"Parameters")
+        testFolder = repositoryRoot
+        dir.promiseFiles(testFolder)
+        .then(testPaths => {
+                testPaths = testPaths.filter(path => {
+                path = path.replace(repositoryRoot+"\\", "")
+                const splitPath = path.split("\\")
+                console.log(splitPath)
+                if(!ignoreFolders.includes(splitPath[0]))
+                    return path
+            })
+            if(testPaths)
+                event.reply('tests-return-all-tests', testFolder, testPaths)
+            
+        })
+        .catch(error => {
+            console.log(`Tests::getAllTests ${error}`)
+        })        
+    }
+    catch(e)
+    {
+        console.log(e)
+    }
+    
+}
+
+module.exports = {getAllParameters, getAllTests}
