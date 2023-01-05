@@ -1,14 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ParameterContext, TestContext } from "../../../App";
 
 const TestControlWindow = props => {
 
     const {activeParameter} = useContext(ParameterContext)
     const {activeTest} = useContext(TestContext)
+    const [showButton,setShowButton] = useState(false)
 
     const canRunTest = () => {
-        return activeTest?.fileName && activeParameter?.fileName
+        setShowButton(  activeParameter?.fileName)
     }
+
+    useEffect(() => {
+        canRunTest()
+    }, [activeParameter,activeTest])
 
     return (<>
         <div className="test-control-test">
@@ -22,7 +27,7 @@ const TestControlWindow = props => {
             <div>{activeParameter ? activeParameter.fileName : "None selected"}</div>
         </div>
         <div className="test-control-button">
-            <button className="run-test-button" disabled={!canRunTest()}>Run Test</button>
+            <button className="run-test-button" disabled={!showButton}>Run Test</button>
         </div>
     
     </>)

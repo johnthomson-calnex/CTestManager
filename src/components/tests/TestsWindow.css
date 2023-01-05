@@ -117,3 +117,6 @@ body {
   cursor: pointer;
   background-color: #54f808;
 }
+.run-test-button:disabled {
+  background-color: #bbb7b7;
+}

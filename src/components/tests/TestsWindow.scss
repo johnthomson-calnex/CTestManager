@@ -123,4 +123,7 @@ body {
         cursor: pointer;
         background-color: #54f808;
     }
+    &:disabled {
+        background-color: rgb(187, 183, 183);
+    }
 }
