@@ -68,6 +68,6 @@ app.on("activate", () => {
 
 // Test Listeners
 ipcMain.on('tests-get-all-parameters', (event) => getAllParameters(event,config["repositoryRoot"]["value"]))
-ipcMain.on('tests-get-all-tests', event => getAllTests(event, config["repositoryRoot"]["value"]))
+ipcMain.on('tests-get-all-tests', event => getAllTests(event, config["repositoryRoot"]["value"], config["ignoreRepositoryFoldersForTest"]["value"]))
 
 
