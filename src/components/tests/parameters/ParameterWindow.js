@@ -21,10 +21,8 @@ const ParameterWindow = props => {
     // ie C:\user\documents\Parameters\ and C:\user\documents\Parameters\param1.py
     // the base path is then stripepd off so we only see the param1.py
     ipcRenderer.on('tests-return-all-parameters', (event,parameterFolderPath,parameterPaths) => {
-        const trimmedPaths = parameterPaths.map(path => {
-            return path.replace(`${parameterFolderPath}\\`, "")
-        })
-        setAllParameterPaths(trimmedPaths)
+        
+        setAllParameterPaths(parameterPaths)
         setParameterFolderBasePath(parameterFolderPath)
     })
 
@@ -32,7 +30,8 @@ const ParameterWindow = props => {
     const displayParameters = () => {
         if(!allParameterPaths) return
         return allParameterPaths.map(path => {
-            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :activeParameter && activeParameter.fullPath === path ? "grey" : "" }}>{path}</div>
+            const trimmedPath = path.replace(`${parameterFolderBasePath}\\`, "")
+            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :activeParameter && activeParameter.fullPath === path ? "grey" : "" }}>{trimmedPath}</div>
         })
     }
 
