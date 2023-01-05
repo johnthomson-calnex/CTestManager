@@ -91,10 +91,11 @@ body {
 
   .parameter-item {
     height:22px;
-
+    padding-left: 5px;
     &:hover {
         cursor: pointer;
         background-color: $primary-hover-colour;
+        border-radius:7px;
     }
   }
 
