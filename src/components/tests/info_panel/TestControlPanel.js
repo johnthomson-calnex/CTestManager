@@ -8,7 +8,7 @@ const TestControlWindow = props => {
     const [showButton,setShowButton] = useState(false)
 
     const canRunTest = () => {
-        setShowButton(  activeParameter?.fileName)
+        setShowButton(  activeParameter?.fileName && activeTest?.fileName)
     }
 
     useEffect(() => {
