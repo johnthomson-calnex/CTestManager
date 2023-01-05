@@ -4,7 +4,7 @@ const url = require("url")
 const path = require("path")
 const { createMainMenu } = require("./menus/MainMenu")
 const { loadConfigFile } = require("./functions/ConfigFile")
-const { getAllParameters, getAllTests } = require("./functions/TestsFunctions")
+const { getAllParameters, getAllTests, runSingleTest } = require("./functions/TestsFunctions")
 
 let mainWindow = null
 let config = null
@@ -69,5 +69,6 @@ app.on("activate", () => {
 // Test Listeners
 ipcMain.on('tests-get-all-parameters', (event) => getAllParameters(event,config["repositoryRoot"]["value"]))
 ipcMain.on('tests-get-all-tests', event => getAllTests(event, config["repositoryRoot"]["value"], config["ignoreRepositoryFoldersForTest"]["value"]))
+ipcMain.on('tests-run-single-test', (event,test,parameter,id) => runSingleTest(event,test,parameter,id))
 
 
