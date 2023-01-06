@@ -68,6 +68,9 @@
     ],
     "directories": {
       "buildResources": "assets"
+    },
+    "win": {
+      "icon" : "build/images/calnexlogo.PNG"
     }
   }
 }

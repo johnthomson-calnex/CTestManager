@@ -20,7 +20,8 @@ const createMainWindow = () => {
             enableRemoteModule : true,
             nodeIntegration : true,
             contextIsolation : false
-        }
+        },
+        icon : "./build/images/calnexlogo.PNG"
     })
 
     //specify main app url depending whether or not is is built(packaged) or in development
