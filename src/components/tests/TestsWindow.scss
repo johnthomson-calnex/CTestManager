@@ -228,3 +228,33 @@ body {
     }
   }
   
+
+  /********************************* Content window *******************************************/
+
+  .content-tabs {
+    display: flex;
+    justify-content: center;
+    
+    
+  }
+
+  .content-tab {
+    background-color: #ececec;
+    width:150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40px;
+    padding-top:0;
+    &:last-child {
+        margin-left: 0.25rem;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: #81cf5d;
+    }
+}
+
+  .active-content-tab {
+    background-color:   #aed69b;
+  }

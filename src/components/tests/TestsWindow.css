@@ -221,3 +221,29 @@ body {
     transform: rotate(360deg);
   }
 }
+/********************************* Content window *******************************************/
+.content-tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.content-tab {
+  background-color: #ececec;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  padding-top: 0;
+}
+.content-tab:last-child {
+  margin-left: 0.25rem;
+}
+.content-tab:hover {
+  cursor: pointer;
+  background-color: #81cf5d;
+}
+
+.active-content-tab {
+  background-color: #aed69b;
+}
