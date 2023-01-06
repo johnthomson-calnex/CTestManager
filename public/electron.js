@@ -45,6 +45,7 @@ app.on("ready", async () => {
         createMainMenu(mainWindow)
         config = await loadConfigFile()
         exports.config = config
+        app.setAppUserModelId("Calnex Test Manager")
 
     }
     catch(e)
