@@ -127,10 +127,41 @@ body {
 /********************************* Tests control Window *******************************************/
 .test-control-test {
   display: flex;
+  position: relative;
 }
 
 .test-control-parameter {
   display: flex;
+  position: relative;
+}
+
+.cross {
+  position: absolute;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cross:hover {
+  cursor: pointer;
+  position: absolute;
+  background-color: #727272;
+  border-radius: 50%;
+}
+.cross:hover:before {
+  content: attr(data-cross);
+  width: 125px;
+  height: 30px;
+  background-color: #727272;
+  border-radius: 10px;
+  top: -32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  pointer-events: none;
 }
 
 .lbl {

@@ -6,9 +6,9 @@ const { ipcRenderer } =  window.require("electron")
 
 const TestControlWindow = props => {
 
-    const {selectedParameter} = useContext(ParameterContext)
+    const {selectedParameter,setSelectedParameter} = useContext(ParameterContext)
     const {setActiveTests} = useContext(ActiveTestsContext)
-    const {selectedTest} = useContext(TestContext)
+    const {selectedTest, setSelectedTest} = useContext(TestContext)
     const [showButton,setShowButton] = useState(false)
 
     const canRunTest = () => {
@@ -39,10 +39,12 @@ const TestControlWindow = props => {
             <div>
             {selectedTest ? selectedTest.fileName : "None selected"}
             </div>
+            {selectedTest && <div className="cross" data-cross="Clear Test" onClick={() => setSelectedTest(null)}>X </div>}
         </div>
         <div className="test-control-parameter">
             <div className="lbl">Selected Parameter:</div>
             <div>{selectedParameter ? selectedParameter.fileName : "None selected"}</div>
+            {selectedParameter && <div className="cross" data-cross="Clear Parameter" onClick={() => setSelectedParameter(null)} >X </div>}
         </div>
         <div className="test-control-button">
             <button className="run-test-button" disabled={!showButton} onClick={runTest}>Run Test</button>
