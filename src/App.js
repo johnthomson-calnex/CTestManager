@@ -7,18 +7,18 @@ export const ParameterContext = createContext(null)
 export const TestContext = createContext(null)
 function App() {
 
-  const [activeParameter,setActiveParameter] = useState(null)
-  const [activeTest,setActiveTest] = useState(null)
+  const [selectedParameter,setSelectedParameter] = useState(null)
+  const [selectedTest,setSelectedTest] = useState(null)
 
   return (<>
     
     <TestContext.Provider value={{
-      activeTest,
-      setActiveTest
+      selectedTest,
+      setSelectedTest
     }}>
         <ParameterContext.Provider value={{
-          activeParameter,
-          setActiveParameter
+          selectedParameter,
+          setSelectedParameter
         }}>
 
           <HashRouter>

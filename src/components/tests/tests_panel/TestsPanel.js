@@ -5,7 +5,7 @@ const {ipcRenderer} = window.require('electron')
 const TestsPanel = props => {
 
 
-    const {setActiveTest,activeTest} = useContext(TestContext)
+    const {setSelectedTest,selectedTest} = useContext(TestContext)
     const [allTestPaths,setAllTestPaths] = useState(null)
     const [testFolderBasePath,setTestFolderBasePath] = useState(null)
 
@@ -31,13 +31,13 @@ const TestsPanel = props => {
         if(!allTestPaths) return
         return allTestPaths.map(path => {
             const trimmedPath = path.replace(`${testFolderBasePath}\\`, "")
-            return <div className="parameter-item" key={path} onClick={() => selectTest(path)} style={{color :activeTest && activeTest.fullPath === path ? "grey" : "" }}>{trimmedPath}</div>
+            return <div className="parameter-item" key={path} onClick={() => selectTest(path)} style={{color :selectedTest && selectedTest.fullPath === path ? "grey" : "" }}>{trimmedPath}</div>
         })
     }
 
     const selectTest = testPath => {
         const splitPath = testPath.split("\\")
-        setActiveTest({
+        setSelectedTest({
             fullPath : testPath,
             fileName : splitPath[splitPath.length-1]
         })

@@ -8,7 +8,6 @@ import TestsPanel from "./tests_panel/TestsPanel"
 
 const TestsWindow = props => {
 
-    const {activeParameter} = useContext(ParameterContext)
 
     return (<>
     

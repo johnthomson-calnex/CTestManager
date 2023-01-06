@@ -6,35 +6,35 @@ const { ipcRenderer } =  window.require("electron")
 
 const TestControlWindow = props => {
 
-    const {activeParameter} = useContext(ParameterContext)
-    const {activeTest} = useContext(TestContext)
+    const {selectedParameter} = useContext(ParameterContext)
+    const {selectedTest} = useContext(TestContext)
     const [showButton,setShowButton] = useState(false)
 
     const canRunTest = () => {
-        setShowButton(  activeParameter?.fileName && activeTest?.fileName)
+        setShowButton(  selectedParameter?.fileName && selectedTest?.fileName)
     }
 
     useEffect(() => {
         canRunTest()
-    }, [activeParameter,activeTest])
+    }, [selectedParameter,selectedTest])
 
     const runTest = () => {
-        if(!activeParameter || !activeTest ) return
-        const parameterStrSplit = activeParameter.fullPath.split("\\")
+        if(!selectedParameter || !selectedTest ) return
+        const parameterStrSplit = selectedParameter.fullPath.split("\\")
         const parameterStr = parameterStrSplit[parameterStrSplit.length-1].replace(".py", "")
-        ipcRenderer.send("tests-run-single-test", activeTest.fullPath,parameterStr, uuid())
+        ipcRenderer.send("tests-run-single-test", selectedTest.fullPath,parameterStr, uuid())
     }
 
     return (<>
         <div className="test-control-test">
             <div className="lbl">Selected Test: </div>
             <div>
-            {activeTest ? activeTest.fileName : "None selected"}
+            {selectedTest ? selectedTest.fileName : "None selected"}
             </div>
         </div>
         <div className="test-control-parameter">
             <div className="lbl">Selected Parameter:</div>
-            <div>{activeParameter ? activeParameter.fileName : "None selected"}</div>
+            <div>{selectedParameter ? selectedParameter.fileName : "None selected"}</div>
         </div>
         <div className="test-control-button">
             <button className="run-test-button" disabled={!showButton} onClick={runTest}>Run Test</button>

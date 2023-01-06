@@ -4,7 +4,7 @@ const {ipcRenderer} = window.require('electron')
 
 const ParameterWindow = props => {
 
-    const {setActiveParameter,activeParameter} = useContext(ParameterContext)
+    const {setSelectedParameter,selectedParameter} = useContext(ParameterContext)
     const [allParameterPaths,setAllParameterPaths] = useState(null)
     const [parameterFolderBasePath,setParameterFolderBasePath] = useState(null)
     
@@ -31,13 +31,13 @@ const ParameterWindow = props => {
         if(!allParameterPaths) return
         return allParameterPaths.map(path => {
             const trimmedPath = path.replace(`${parameterFolderBasePath}\\`, "")
-            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :activeParameter && activeParameter.fullPath === path ? "grey" : "" }}>{trimmedPath}</div>
+            return <div className="parameter-item" key={path} onClick={() => selectParameter(path)} style={{color :selectedParameter && selectedParameter.fullPath === path ? "grey" : "" }}>{trimmedPath}</div>
         })
     }
 
     const selectParameter = parameterPath => {
         const splitPath = parameterPath.split("\\")
-        setActiveParameter({
+        setSelectedParameter({
             fullPath : parameterPath,
             fileName : splitPath[splitPath.length-1]
         })
