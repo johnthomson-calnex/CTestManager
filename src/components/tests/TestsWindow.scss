@@ -24,7 +24,7 @@ body {
 
 .tests-left-tests {
     border-radius:10px;
-    height:68%;
+    height:70%;
     margin-top:1rem;
     box-shadow: 0 0 2px 2px gray;
     background-color: white;
@@ -34,7 +34,7 @@ body {
 .tests-right {
     width:75%;
     margin-left:1rem;
-    
+    height:100%;
 }
 
 .tests-right-info {
@@ -69,7 +69,7 @@ body {
     padding:1rem;
     margin-top:1rem;
     background-color: white;
-    
+    width:100%;
 }
 
 .window-header {
@@ -257,4 +257,20 @@ body {
 
   .active-content-tab {
     background-color:   #aed69b;
+  }
+  .content-preview {
+    width:100%;
+    height:100%;
+  }
+  .content-preview-content {
+    width:100%;
+    height:100%;
+    textarea {
+        width:100%;
+        height:90%;
+        padding:1rem;
+        font-size:0.9rem;
+        line-height: 1.2;
+        background-color: #eeeeee;
+    }
   }
