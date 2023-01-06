@@ -25,7 +25,13 @@ const TestsWindow = props => {
 
             <div className="tests-right">
                 <div className="tests-right-info">
-                    <TestControlWindow {...props} />
+                    <div className="tests-right-info-control">
+                        <TestControlWindow {...props} />
+                    </div>
+                    <div className="tests-right-info-active">
+                        active tests
+                    </div>
+                    
                 </div>
                 <div className="tests-right-content">
                     content
