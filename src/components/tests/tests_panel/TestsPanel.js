@@ -41,7 +41,7 @@ const TestsPanel = props => {
             fullPath : testPath,
             fileName : splitPath[splitPath.length-1]
         })
-        ipcRenderer.send('tests-get-test-file', testPath)
+        ipcRenderer.send('tests-get-file-contents', testPath, "test")
     }
 
 
