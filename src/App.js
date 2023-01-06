@@ -5,10 +5,13 @@ import React, {createContext, useState} from "react"
 
 export const ParameterContext = createContext(null)
 export const TestContext = createContext(null)
+export const ActiveTestsContext = createContext(null)
+
 function App() {
 
   const [selectedParameter,setSelectedParameter] = useState(null)
   const [selectedTest,setSelectedTest] = useState(null)
+  const [activeTests,setActiveTests] = useState(null)
 
   return (<>
     
@@ -21,16 +24,21 @@ function App() {
           setSelectedParameter
         }}>
 
-          <HashRouter>
+          <ActiveTestsContext.Provider value={{
+            activeTests,
+            setActiveTests
+          }}>
 
-            <Routes>
+            <HashRouter>
 
-              <Route path="/" exact element={<MainWindow />}/>
+              <Routes>
 
-            </Routes>
+                <Route path="/" exact element={<MainWindow />}/>
 
-          </HashRouter>
+              </Routes>
 
+            </HashRouter>
+          </ActiveTestsContext.Provider>
         </ParameterContext.Provider>
       </TestContext.Provider>
 
