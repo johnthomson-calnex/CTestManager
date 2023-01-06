@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PreviewContent from "./PreviewContent";
 
 const ContentWindow = props => {
 
@@ -22,6 +23,11 @@ const ContentWindow = props => {
                     Preview Parameter
                 </div>
             </div>
+        </div>
+
+        <div className="content-preview">
+            {selectedTab === "test" && <PreviewContent {...props} type="test" />}
+            {selectedTab === "parameter" && <PreviewContent {...props} type="parameter" />}
         </div>
     
     </>)
