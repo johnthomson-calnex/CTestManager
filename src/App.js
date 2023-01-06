@@ -11,7 +11,7 @@ function App() {
 
   const [selectedParameter,setSelectedParameter] = useState(null)
   const [selectedTest,setSelectedTest] = useState(null)
-  const [activeTests,setActiveTests] = useState(null)
+  const [activeTests,setActiveTests] = useState([])
 
   return (<>
     
