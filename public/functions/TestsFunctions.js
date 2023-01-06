@@ -1,5 +1,6 @@
 const dir = require("node-dir")
 const path = require("path")
+const fs = require("fs")
 const {spawn} = require("child_process")
 const {Notification} = require("electron")
 const getAllParameters = (event,repositoryRoot) => {
@@ -84,4 +85,33 @@ const runSingleTest = (event,test,parameter, id) => {
     }
 }
 
-module.exports = {getAllParameters, getAllTests, runSingleTest}
+const getFileContents = (event,filepath, type) => {
+    try {
+        const contents = fs.readFile(filepath, 'utf-8', (err,contents) => {
+            if(err)
+            {
+                console.log(err)
+            }
+            else
+            {
+                const lines = []
+                contents.split(/\r?\n/).forEach(line => {
+                    lines.push(line)
+                })
+                if(type === "test")
+                    event.reply('tests-return-test-file',lines)
+                else
+                    event.reply('tests-return-parameter-file', lines)
+                fs.close(1)
+
+            }
+        });
+    }
+    catch(e)
+    {
+        console.log(e)
+    }
+
+}
+
+module.exports = {getAllParameters, getAllTests, runSingleTest, getFileContents}
