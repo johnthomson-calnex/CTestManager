@@ -41,7 +41,7 @@ const ParameterWindow = props => {
             fullPath : parameterPath,
             fileName : splitPath[splitPath.length-1]
         })
-        ipcRenderer.send("tests-get-parameter-file", parameterPath)
+        ipcRenderer.send("tests-get-file-contents", parameterPath, "parameter")
     }
 
     return (<>
