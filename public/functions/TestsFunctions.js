@@ -58,12 +58,13 @@ const getAllTests = (event,repositoryRoot,ignoreFolders) => {
 const runSingleTest = (event,test,parameter, id) => {
     try {
         const process = spawn('python', [test, parameter])
-
         
+        const split = test.split("\\")
+        const testPathTrimmed = split[split.length-1]
 
         process.on('close', code => {
-            console.log(`Child process for ${test} finished with exit code ${code}`)
-            new Notification({title:"Test Finished", body: `${test} has finished`}).show()
+            console.log(`Child process for ${testPathTrimmed} finished with exit code ${code}`)
+            new Notification({title:"Test Finished", body: `${testPathTrimmed} has finished`}).show()
             event.reply("tests-test-finished", id)
         })
 
@@ -72,7 +73,9 @@ const runSingleTest = (event,test,parameter, id) => {
         })
 
         process.on("error", err => {
-            console.log(`Error occurred: ${err}` )
+            console.log(`Error occurred: ${err} during ${testPathTrimmed}` )
+            new Notification({title:"Test Error", body: `${testPathTrimmed} has an error`}).show()
+            event.reply("tests-test-finished", id)
         })
 
     }
