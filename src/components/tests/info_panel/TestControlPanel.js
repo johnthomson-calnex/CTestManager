@@ -26,6 +26,7 @@ const TestControlWindow = props => {
     }
 
     return (<>
+    <div className="window-header">Test Control</div>
         <div className="test-control-test">
             <div className="lbl">Selected Test: </div>
             <div>

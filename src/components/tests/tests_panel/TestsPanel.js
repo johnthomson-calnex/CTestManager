@@ -45,7 +45,7 @@ const TestsPanel = props => {
 
 
     return (<>
-    
+        <div className="window-header">Tests</div>
         <div className="parameter-window">
             {displayTests()}
         </div>

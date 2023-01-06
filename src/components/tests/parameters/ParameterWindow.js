@@ -45,9 +45,11 @@ const ParameterWindow = props => {
 
     return (<>
     
-        <div className="parameter-window">
-            {displayParameters()}
-        </div>
+        
+            <div className="window-header">Parameters</div>
+            <div className="parameter-window">
+                {displayParameters()}
+            </div>
     
     </>)
 }

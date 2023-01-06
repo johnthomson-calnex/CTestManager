@@ -59,7 +59,7 @@ body {
     border-radius:10px;
     background-color: white;
     width: 50%;
-    padding:1rem;
+    padding:0 1rem 1rem 1rem;
 }
 
 .tests-right-content {
@@ -70,6 +70,13 @@ body {
     margin-top:1rem;
     background-color: white;
     
+}
+
+.window-header {
+    text-align: center;
+    border-bottom: 1px solid grey;
+    margin-bottom:0.5rem;
+    padding:0.25rem;
 }
 /********************************* Parameter Window *******************************************/
 
