@@ -71,7 +71,7 @@ app.on("activate", () => {
 // Test Listeners
 ipcMain.on('tests-get-all-parameters', (event) => getAllParameters(event,config["repositoryRoot"]["value"]))
 ipcMain.on('tests-get-all-tests', event => getAllTests(event, config["repositoryRoot"]["value"], config["ignoreRepositoryFoldersForTest"]["value"]))
-ipcMain.on('tests-run-single-test', (event,test,parameter,id) => runSingleTest(event,test,parameter,id))
+ipcMain.on('tests-run-single-test', (event,test,parameter,id) => runSingleTest(event,test,parameter,id, config["repositoryRoot"]["value"]))
 ipcMain.on("tests-get-file-contents", (event,path,type) => getFileContents(event,path,type))
 
 

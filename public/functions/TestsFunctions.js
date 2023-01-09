@@ -56,9 +56,10 @@ const getAllTests = (event,repositoryRoot,ignoreFolders) => {
     
 }
 
-const runSingleTest = (event,test,parameter, id) => {
+const runSingleTest = (event,test,parameter, id, repositoryRoot) => {
     try {
-        const process = spawn('python', [test, parameter])
+        const splitPath = test.split(repositoryRoot + "\\")
+        const process = spawn(`python`, [splitPath[1], parameter], {cwd : repositoryRoot})
         
         const split = test.split("\\")
         const testPathTrimmed = split[split.length-1]
